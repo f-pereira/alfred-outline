@@ -1,13 +1,14 @@
 {
   "name": "alfred-outline",
-  "version": "1.0.0-1",
+  "version": "1.0.1",
+  "type": "module",
   "description": "Search your team knowledgebase from the comfort of Alfred",
   "author": {
     "name": "Tom Moor",
     "email": "tom@getoutline.com"
   },
   "dependencies": {
-    "alfy": "^0.9.1"
+    "alfy": "^2.1.0"
   },
   "scripts": {
     "postinstall": "alfy-init",

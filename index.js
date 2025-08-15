@@ -1,5 +1,5 @@
-const path = require('path');
-const alfy = require('alfy');
+import alfy from 'alfy';
+import * as path from 'path'
 
 const protocolAndHost = `https://${process.env.domain || "app.getoutline.com"}`;
 
@@ -9,17 +9,18 @@ const results = await alfy.fetch(`${protocolAndHost}/api/documents.search`, {
     Authorization: `Bearer ${process.env.apiToken}`,
     "Content-Type": "application/json",
   },
-  body: {
+  json: {
     query: alfy.input
   }
 });
+
 
 let items = results.data.map(result => ({
   title: result.document.title,
   subtitle: result.context.replace(/\<\/?b\>/g, ''),
   arg: `${protocolAndHost}${result.document.url}`,
   icon: {
-    path: path.join(__dirname, "document.png")
+    path: path.join(import.meta.dirname, "document.png")
   }
 }));
 
